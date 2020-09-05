@@ -19,7 +19,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'pry'
-  gem 'rspec'
+  gem 'rspec', '~> 3.9'
+  gem 'rubocop', '~> 0.90'
 end
 
 group :development do
