@@ -2,12 +2,12 @@
 
 class RecipesController < ApplicationController
   def index
-    # TODO: sanitize, and validate, slice params
-    @recipes = IndexQuery.call(params.permit!.to_h)
+    @recipes = IndexQuery.call({})
   end
 
   def show
-    # TODO: sanitize, and validate, slice params
-    @recipe = ShowQuery.call(params.permit!.to_h)
+    # TODO: sanitize, and validate params
+    recipe = ShowQuery.call(id: params.require(:id))
+    @recipe = Recipe::ShowPresenter.new(recipe)
   end
 end

@@ -2,11 +2,4 @@
 
 class Recipe < ContentfulModel::Base
   self.content_type_id = 'recipe'
-
-  # title
-  # photo
-  # calories
-  # description
-  # tags
-  # chef
 end

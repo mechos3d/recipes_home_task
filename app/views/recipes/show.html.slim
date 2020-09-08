@@ -7,13 +7,19 @@ article#main-content
 
   ul
     li = @recipe.title
-    li = @recipe.description
-    li = @recipe.calories
-    - if (chef_name = @recipe.chef&.name)
-      li = chef_name
-    - if (tags = @recipe.tags)
+    li
+      p Description:
+      p = @recipe.description
+    li
+      p Calories:
+      p = @recipe.calories
+    - if @recipe.chef_name
       li
-        | tags:&nbsp;
-        = tags&.map { |x| x.name }.join(', ')
+        p Chef:
+        p = @recipe.chef_name
+    - if @recipe.tags_list
+      li
+        p Tags:
+        p = @recipe.tags_list
 
-= link_to 'Back', recipes_path
+= link_to 'To recipes list', recipes_path
