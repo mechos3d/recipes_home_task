@@ -9,9 +9,13 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 
+gem 'slim'
+
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'contentful_model'
+
+gem 'config'
 
 group :development, :test do
   gem 'pry'

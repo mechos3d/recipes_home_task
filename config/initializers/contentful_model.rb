@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 ContentfulModel.configure do |config|
-  config.access_token = ENV.fetch('CONTENTFUL_DELIVERY_API_TOKEN')
+  config.access_token = Settings.contentful_api.access_token
+  config.space = Settings.contentful_api.space
   # config.preview_access_token = "your preview token in here" # Optional - required if you want to use the preview API
   # config.management_token = "your management token in here" # Optional - required if you want to update or create content
-  config.space = ENV.fetch('CONTENTFUL_DELIVERY_API_SPACE')
   # config.environment = "master" # Optional - defaults to 'master'
   config.default_locale = 'en-US' # Optional - defaults to 'en-US'
   config.options = { # Optional

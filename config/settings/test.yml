@@ -1,0 +1,3 @@
+contentful_api:
+  access_token: 'foo'
+  space: '_space'
