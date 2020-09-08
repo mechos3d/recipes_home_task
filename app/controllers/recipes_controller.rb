@@ -2,7 +2,10 @@
 
 class RecipesController < ApplicationController
   def index
-    @recipes = IndexQuery.call({})
+    # TODO: validate offset param (no negative or non-integer values)
+    @recipes = IndexQuery.call(
+      params.permit(:offset).to_h.symbolize_keys
+    )
   end
 
   def show

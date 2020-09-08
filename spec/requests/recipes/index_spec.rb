@@ -4,17 +4,17 @@ require 'rails_helper'
 
 describe 'GET /recipes', type: :request do
   subject(:call_endpoint) do
-    get('/recipes', params: {}, as: :html, headers: {})
+    get('/recipes', params: params, as: :html, headers: {})
   end
+  let(:params) { {} }
 
   describe 'happy-path' do
+    let(:recipes_stub) { [] }
     before do
       allow(RecipesController::IndexQuery).to receive(:call).and_return(recipes_stub)
     end
 
     context 'with empty collection' do
-      let(:recipes_stub) { [] }
-
       it 'returns page, status 200 OK' do
         call_endpoint
 
@@ -51,6 +51,18 @@ describe 'GET /recipes', type: :request do
           recipes_stub.each do |recipe|
             expect(response.body).to include(recipe.title)
           end
+        end
+      end
+    end
+
+    context 'when given valid offset parameter' do
+      let(:params) { { offset: 777 } }
+
+      it 'returns page, status 200 OK' do
+        call_endpoint
+
+        aggregate_failures do
+          expect(RecipesController::IndexQuery).to have_received(:call).with(offset: '777')
         end
       end
     end
