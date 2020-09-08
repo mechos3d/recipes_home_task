@@ -20,9 +20,13 @@ gem 'config'
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails', '~> 4.0'
-  gem 'rubocop', '~> 0.90'
   gem 'factory_bot_rails', '~> 6.1'
   gem 'faker', '~> 2.13'
+
+  gem 'rubocop', '~> 0.90', require: false
+  gem 'rubocop-performance', '~> 1.7.1', require: false
+  gem 'rubocop-rails', '~> 2.7.1', require: false
+  gem 'rubocop-rspec', '~> 1.43.2', require: false
 end
 
 group :development do

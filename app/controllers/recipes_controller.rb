@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RecipesController < ApplicationController
   def index
     # TODO: sanitize, and validate input params (if needed)
