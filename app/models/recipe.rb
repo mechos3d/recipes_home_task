@@ -8,4 +8,5 @@ class Recipe < ContentfulModel::Base
   # calories
   # description
   # tags
+  # chef
 end
