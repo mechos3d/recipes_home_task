@@ -16,9 +16,9 @@ ContentfulModel.configure do |config|
     # will apply. Useful because Delivery API is usually visitor facing, while Management
     # is used in background tasks that can run much longer.
     delivery_api: {
-      timeout_read: 6,
-      timeout_write: 6,
-      timeout_connect: 6
+      timeout_read: 10,
+      timeout_write: 10,
+      timeout_connect: 10
     }
     # management_api: {
     #   timeout_read: 100

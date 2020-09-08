@@ -19,8 +19,10 @@ gem 'config'
 
 group :development, :test do
   gem 'pry'
-  gem 'rspec', '~> 3.9'
+  gem 'rspec-rails', '~> 4.0'
   gem 'rubocop', '~> 0.90'
+  gem 'factory_bot_rails', '~> 6.1'
+  gem 'faker', '~> 2.13'
 end
 
 group :development do
