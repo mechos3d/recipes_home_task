@@ -13,3 +13,14 @@ table
             = image_tag(recipe.photo.url(width: 150, format: 'jpg', quality: 70), width: 150)
           td
             = link_to(recipe.title, recipe_path(recipe.id))
+
+#pagination
+  // TODO: make pagination buttons just disabled if this link is not needed.
+  div
+    = pagination_prev_page(@default_limit)
+  div
+    | Total recipes:
+    = @recipes.total
+  div
+    = pagination_next_page(@default_limit)
+

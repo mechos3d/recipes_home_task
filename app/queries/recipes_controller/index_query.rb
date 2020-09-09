@@ -2,15 +2,14 @@
 
 class RecipesController < ApplicationController
   class IndexQuery
-    DEFAULT_LIMIT = 10
     DEFAULT_ORDER = { calories: :desc }.freeze
-    private_constant :DEFAULT_LIMIT, :DEFAULT_ORDER
+    private_constant :DEFAULT_ORDER
 
     def self.call(params)
       new(params).call
     end
 
-    def initialize(offset: 0, limit: DEFAULT_LIMIT, order: DEFAULT_ORDER)
+    def initialize(limit:, offset: 0, order: DEFAULT_ORDER)
       @offset = offset
       @limit  = limit
       @order  = order
