@@ -1,3 +1,16 @@
-// Place all the styles related to the Recipes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+#recipes-count {
+  min-height: 40px;
+  vertical-align: middle;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.tag-label {
+  margin: 0 10px;
+  font-size: 0.8rem;
+}
+
+.chef-name-label {
+  margin: 0 10px;
+  font-size: 0.8rem;
+}

@@ -5,21 +5,22 @@ article#main-content
   div
     = image_tag(@recipe.photo.url(width: 300, height: 200, format: 'jpg', quality: 100), width: 300, alt: @recipe.photo.description)
 
-  ul
-    li = @recipe.title
-    li
+  ul#recipe-details.list-group
+    li.list-group-item = @recipe.title
+    li.list-group-item
       p Description:
       p = @recipe.description
-    li
+    li.list-group-item
       p Calories:
       p = @recipe.calories
     - if @recipe.chef_name
-      li
+      li.list-group-item
         p Chef:
-        p = @recipe.chef_name
-    - if @recipe.tags_list
-      li
+        = link_to(@recipe.chef_name, '#', class: 'btn btn-info chef-name-label')
+    - if @recipe.tag_names
+      li.list-group-item
         p Tags:
-        p = @recipe.tags_list
+        - @recipe.tag_names.each do |tag_name|
+          = link_to(tag_name, '#', class: 'btn btn-success tag-label')
 
-= link_to 'To recipes list', recipes_path
+= link_to('To recipes list', recipes_path, class: 'btn btn-outline-primary')

@@ -19,7 +19,8 @@ class RecipesController < ApplicationController
   private
 
   def set_default_limit
-    @default_limit = 10
+    # TODO: allow the user to customize limit
+    @default_limit = 3
   end
 
   def index_params

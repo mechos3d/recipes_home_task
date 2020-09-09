@@ -2,8 +2,8 @@
 
 class Recipe < ContentfulModel::Base
   class ShowPresenter < SimpleDelegator
-    def tags_list
-      @tags_list ||= tags ? tags.map { |x| x.name }.join(', ') : nil
+    def tag_names
+      @tag_names ||= tags ? tags.map { |x| x.name } : nil
     end
 
     def chef_name

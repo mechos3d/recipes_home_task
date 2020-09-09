@@ -2,15 +2,17 @@ doctype html
 html
   head
     title
-      | RecipesList
+      Recipes list
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    #flash_msg
-      - flash.each do |type, msg|
-        div
-          = msg
+    -if flash.present?
+      #flash_msg.alert.alert-danger role="alert"
+        - flash.each do |type, msg|
+          .row
+            .col-md-12
+              = msg
     = yield
