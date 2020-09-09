@@ -8,13 +8,10 @@ class RecipesController < ApplicationController
 
     def initialize(params)
       @params = params
-
-      # TODO: make more concrete exception here:
-      raise unless params[:id]
     end
 
     def call
-      Recipe.params(include: 2).find(params[:id])
+      Recipe.params(include: 2).where(id: params[:id]).load!.first
     end
 
     private
