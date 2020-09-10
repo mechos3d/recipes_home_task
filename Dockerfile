@@ -23,5 +23,7 @@ RUN CONTENTFUL_DELIVERY_API_TOKEN='' \
   CONTENTFUL_DELIVERY_API_SPACE='' \
   RAILS_ENV=production bundle exec rails assets:precompile
 
+RUN yarn install --check-files
+
 ENV HOME $RAILS_ROOT
 CMD ["bundle", "exec", "puma"]
